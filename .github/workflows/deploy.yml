@@ -1,0 +1,29 @@
+name: Déploiement FTP vers WordPress
+
+on:
+  push:
+    branches:
+      - main # Déclenche le déploiement uniquement lors d'un push sur 'main'
+
+jobs:
+  web-deploy:
+    name: 🎉 Déploiement
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Récupération du code
+      uses: actions/checkout@v4
+      
+    - name: 📂 Déploiement FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        # Le port standard est 21 (FTP) ou 22 (SFTP), le plugin s'adapte.
+        server-dir: /wp-content/themes/corentis-theme/
+        # Exclure les fichiers inutiles pour le serveur
+        exclude: |
+          **/.git*
+          **/.git*/**
+          .github/**
+          push_changes.ps1
