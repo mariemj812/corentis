@@ -1,0 +1,15 @@
+/*
+Theme Name: Corentis Consulting Group
+Theme URI: https://corentis-consulting.com
+Author: Corentis Consulting Group
+Author URI: https://corentis-consulting.com
+Description: Thème WordPress personnalisé pour Corentis Consulting Group — Cabinet de conseil spécialisé en stratégie, performance et croissance.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: corentis
+Requires at least: 6.0
+Requires PHP: 7.4
+*/
+
+/* Le CSS principal est chargé via functions.php depuis css/style.css */
