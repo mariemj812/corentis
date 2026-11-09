@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="<?php echo corentis_img( 'logo.png' ); ?>" type="image/png">
+  <link rel="icon" href="<?php echo corentis_img( 'logo-transparent.png' ); ?>" type="image/png">
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
   <nav class="navbar<?php if ( ! is_front_page() ) echo ' scrolled'; ?>" id="main-nav">
     <div class="container">
       <a href="<?php echo home_url( '/' ); ?>" class="nav-logo">
-        <img src="<?php echo corentis_img( 'logo.png' ); ?>" alt="Corentis Consulting Group">
+        <img src="<?php echo corentis_img( 'logo-transparent.png' ); ?>" alt="Corentis Consulting Group">
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="<?php echo home_url( '/' ); ?>"<?php if ( is_front_page() ) echo ' class="active"'; ?>>Accueil</a></li>

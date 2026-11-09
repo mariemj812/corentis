@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     <div class="container">
       <div class="footer-grid-5">
         <div class="footer-brand">
-          <img src="<?php echo corentis_img( 'logo.png' ); ?>" alt="Corentis Consulting Group">
+          <img src="<?php echo corentis_img( 'logo-transparent.png' ); ?>" alt="Corentis Consulting Group">
           <p>Cabinet de conseil spécialisé en stratégie, performance et croissance des entreprises. Expertise en systèmes de management et conformité internationale.</p>
           <div class="footer-social">
             <a href="#" aria-label="LinkedIn">in</a>
