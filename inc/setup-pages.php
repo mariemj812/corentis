@@ -105,6 +105,11 @@ function corentis_create_pages() {
             'template' => 'page-templates/page-contact.php',
             'parent'   => '',
         ),
+        'bulletin-inscription' => array(
+            'title'    => "Bulletin d'Inscription",
+            'template' => 'page-templates/page-bulletin-inscription.php',
+            'parent'   => '',
+        ),
     );
 
     // Store created page IDs for parent resolution

@@ -29,7 +29,7 @@ get_header();
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Télécharger le catalogue
             </a>
-            <a href="<?php echo corentis_page_url('devis'); ?>" class="btn btn-outline">Demander un devis</a>
+            <a href="<?php echo corentis_page_url('bulletin-inscription'); ?>" class="btn btn-outline">S'inscrire</a>
           </div>
         </div>
         <img src="<?php echo corentis_img('formation.png'); ?>" alt="Formation Corentis">
@@ -87,7 +87,7 @@ get_header();
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Télécharger le catalogue
         </a>
-        <a href="<?php echo corentis_page_url('contact'); ?>" class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;">Nous contacter</a>
+        <a href="<?php echo corentis_page_url('bulletin-inscription'); ?>" class="btn btn-outline" style="border-color:rgba(255,255,255,.6);color:#fff;">S'inscrire</a>
       </div>
     </div>
   </section>

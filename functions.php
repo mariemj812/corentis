@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Theme version
-define( 'CORENTIS_VERSION', '1.6.8' );
+define( 'CORENTIS_VERSION', '1.6.9' );
 
 /**
  * Theme Setup
@@ -131,3 +131,89 @@ function corentis_admin_bar_fix() {
     }
 }
 add_action( 'wp_head', 'corentis_admin_bar_fix' );
+
+/**
+ * Handle Bulletin d'Inscription Form Submission
+ */
+add_action( 'wp_ajax_corentis_submit_bulletin', 'corentis_handle_bulletin_submission' );
+add_action( 'wp_ajax_nopriv_corentis_submit_bulletin', 'corentis_handle_bulletin_submission' );
+add_action( 'admin_post_corentis_submit_bulletin', 'corentis_handle_bulletin_submission' );
+add_action( 'admin_post_nopriv_corentis_submit_bulletin', 'corentis_handle_bulletin_submission' );
+
+function corentis_handle_bulletin_submission() {
+    $theme = isset( $_POST['theme'] ) ? sanitize_text_field( $_POST['theme'] ) : '';
+    $date_sem = isset( $_POST['date_seminaire'] ) ? sanitize_text_field( $_POST['date_seminaire'] ) : '';
+    $lieu_sem = isset( $_POST['lieu_seminaire'] ) ? sanitize_text_field( $_POST['lieu_seminaire'] ) : '';
+
+    $entreprise_nom = isset( $_POST['entreprise_nom'] ) ? sanitize_text_field( $_POST['entreprise_nom'] ) : '';
+    $entreprise_mf = isset( $_POST['matricule_fiscal'] ) ? sanitize_text_field( $_POST['matricule_fiscal'] ) : '';
+    $entreprise_adresse = isset( $_POST['entreprise_adresse'] ) ? sanitize_text_field( $_POST['entreprise_adresse'] ) : '';
+    $entreprise_tel = isset( $_POST['entreprise_tel'] ) ? sanitize_text_field( $_POST['entreprise_tel'] ) : '';
+    $entreprise_fax = isset( $_POST['entreprise_fax'] ) ? sanitize_text_field( $_POST['entreprise_fax'] ) : '';
+    $entreprise_email = isset( $_POST['entreprise_email'] ) ? sanitize_email( $_POST['entreprise_email'] ) : '';
+
+    $resp_nom = isset( $_POST['responsable_nom'] ) ? sanitize_text_field( $_POST['responsable_nom'] ) : '';
+    $resp_adresse = isset( $_POST['responsable_adresse'] ) ? sanitize_text_field( $_POST['responsable_adresse'] ) : '';
+    $resp_tel = isset( $_POST['responsable_tel'] ) ? sanitize_text_field( $_POST['responsable_tel'] ) : '';
+    $resp_fax = isset( $_POST['responsable_fax'] ) ? sanitize_text_field( $_POST['responsable_fax'] ) : '';
+    $resp_email = isset( $_POST['responsable_email'] ) ? sanitize_email( $_POST['responsable_email'] ) : '';
+
+    $signataire_nom = isset( $_POST['signataire_nom'] ) ? sanitize_text_field( $_POST['signataire_nom'] ) : '';
+
+    $participants_html = '';
+    if ( ! empty( $_POST['participant_nom'] ) && is_array( $_POST['participant_nom'] ) ) {
+        $noms = $_POST['participant_nom'];
+        $fonctions = isset( $_POST['participant_fonction'] ) ? $_POST['participant_fonction'] : array();
+        $emails = isset( $_POST['participant_email'] ) ? $_POST['participant_email'] : array();
+        $gsms = isset( $_POST['participant_gsm'] ) ? $_POST['participant_gsm'] : array();
+
+        $participants_html .= '<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:14px;margin-top:10px;">';
+        $participants_html .= '<tr style="background:#0f1e40;color:#ffffff;"><th>N°</th><th>Nom & Prénom</th><th>Fonction</th><th>Email</th><th>GSM</th></tr>';
+        $idx = 1;
+        for ( $i = 0; $i < count( $noms ); $i++ ) {
+            $nom = sanitize_text_field( $noms[$i] );
+            if ( empty( $nom ) ) continue;
+            $fonc = isset( $fonctions[$i] ) ? sanitize_text_field( $fonctions[$i] ) : '';
+            $em = isset( $emails[$i] ) ? sanitize_email( $emails[$i] ) : '';
+            $gsm = isset( $gsms[$i] ) ? sanitize_text_field( $gsms[$i] ) : '';
+
+            $participants_html .= "<tr><td align='center'><strong>{$idx}</strong></td><td>{$nom}</td><td>{$fonc}</td><td>{$em}</td><td>{$gsm}</td></tr>";
+            $idx++;
+        }
+        $participants_html .= '</table>';
+    }
+
+    $to = 'manager@corentis-consulting.com.tn';
+    $subject = "Nouveau Bulletin d'Inscription : " . ( $theme ? $theme : 'Formation' ) . " — " . $entreprise_nom;
+
+    $message = "<html><body style='font-family:Arial,sans-serif;color:#1e293b;line-height:1.6;'>";
+    $message .= "<div style='max-width:700px;margin:0 auto;border:1px solid #cbd5e1;border-radius:10px;padding:25px;'>";
+    $message .= "<h2 style='color:#1e3a8a;border-bottom:2px solid #2563eb;padding-bottom:8px;margin-top:0;'>Nouveau Bulletin d'Inscription - Formation</h2>";
+    $message .= "<h3 style='color:#0f2756;margin-bottom:6px;'>1. Participation au séminaire</h3>";
+    $message .= "<p style='background:#f8fafc;padding:12px;border-radius:8px;'><strong>Thème :</strong> {$theme}<br><strong>Date :</strong> {$date_sem}<br><strong>Lieu :</strong> {$lieu_sem}</p>";
+    $message .= "<h3 style='color:#0f2756;margin-bottom:6px;'>2. Participants inscrits</h3>" . $participants_html;
+    $message .= "<h3 style='color:#0f2756;margin-bottom:6px;margin-top:20px;'>3. Coordonnées de l'entreprise</h3>";
+    $message .= "<p style='background:#f8fafc;padding:12px;border-radius:8px;'><strong>Raison sociale :</strong> {$entreprise_nom}<br><strong>Matricule Fiscal :</strong> {$entreprise_mf}<br><strong>Adresse :</strong> {$entreprise_adresse}<br><strong>Tél :</strong> {$entreprise_tel} | <strong>Fax :</strong> {$entreprise_fax}<br><strong>Email :</strong> <a href='mailto:{$entreprise_email}'>{$entreprise_email}</a></p>";
+    $message .= "<h3 style='color:#0f2756;margin-bottom:6px;'>4. Responsable Formation</h3>";
+    $message .= "<p style='background:#f8fafc;padding:12px;border-radius:8px;'><strong>Nom :</strong> {$resp_nom}<br><strong>Adresse :</strong> {$resp_adresse}<br><strong>Tél :</strong> {$resp_tel} | <strong>Fax :</strong> {$resp_fax}<br><strong>Email :</strong> <a href='mailto:{$resp_email}'>{$resp_email}</a></p>";
+    $message .= "<h3 style='color:#0f2756;margin-bottom:6px;'>5. Validation & Cachet</h3>";
+    $message .= "<p style='background:#f8fafc;padding:12px;border-radius:8px;'><strong>Signataire :</strong> {$signataire_nom}<br><strong>Date :</strong> " . date('d/m/Y') . "</p>";
+    $message .= "</div></body></html>";
+
+    $headers = array(
+        'Content-Type: text/html; charset=UTF-8',
+        'From: Corentis Web <no-reply@corentis-consulting.com.tn>',
+    );
+    if ( ! empty( $entreprise_email ) ) {
+        $headers[] = 'Reply-To: ' . $entreprise_email;
+    }
+
+    @wp_mail( $to, $subject, $message, $headers );
+
+    if ( function_exists( 'wp_doing_ajax' ) && wp_doing_ajax() ) {
+        wp_send_json_success( array( 'message' => 'Bulletin envoyé avec succès à manager@corentis-consulting.com.tn' ) );
+    } else {
+        wp_redirect( add_query_arg( 'sent', '1', wp_get_referer() ) );
+        exit;
+    }
+}
