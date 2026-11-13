@@ -74,7 +74,7 @@ if (! defined('ABSPATH')) exit;
         <li><a href="<?php echo corentis_page_url('qui-sommes-nous'); ?>" <?php if (is_page('qui-sommes-nous')) echo ' class="active"'; ?>>Qui sommes-nous</a></li>
         <li><a href="<?php echo corentis_page_url('formation'); ?>" <?php if (is_page('formation')) echo ' class="active"'; ?>>Formation</a></li>
         <li>
-          <a href="<?php echo corentis_page_url('conseil'); ?>" <?php if (is_page(array('conseil', 'conseil-qualite', 'conseil-environnement', 'conseil-sst', 'conseil-hygiene', 'conseil-social', 'conseil-digital', 'conseil-autres'))) echo ' class="active"'; ?>>Conseil <span class="arrow">▼</span></a>
+          <a href="<?php echo corentis_page_url('conseil'); ?>" <?php if (is_page(array('conseil', 'conseil-qualite', 'conseil-environnement', 'conseil-sst', 'conseil-hygiene', 'conseil-social', 'conseil-digital', 'conseil-rh', 'conseil-comptabilite', 'conseil-autres'))) echo ' class="active"'; ?>>Conseil <span class="arrow">▼</span></a>
           <div class="dropdown">
             <a href="<?php echo corentis_page_url('conseil-qualite'); ?>">Qualité</a>
             <a href="<?php echo corentis_page_url('conseil-environnement'); ?>">Environnement</a>
@@ -82,7 +82,8 @@ if (! defined('ABSPATH')) exit;
             <a href="<?php echo corentis_page_url('conseil-hygiene'); ?>">Hygiène &amp; Alimentation</a>
             <a href="<?php echo corentis_page_url('conseil-social'); ?>">Social</a>
             <a href="<?php echo corentis_page_url('conseil-digital'); ?>">Marketing Digital &amp; Création Web</a>
-            <a href="<?php echo corentis_page_url('conseil-autres'); ?>">Autres domaines</a>
+            <a href="<?php echo corentis_page_url('conseil-rh'); ?>">Ressources Humaines</a>
+            <a href="<?php echo corentis_page_url('conseil-comptabilite'); ?>">Comptabilité</a>
           </div>
         </li>
         <li>

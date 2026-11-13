@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Theme version
-define( 'CORENTIS_VERSION', '1.7.2' );
+define( 'CORENTIS_VERSION', '1.7.3' );
 
 /**
  * Theme Setup
@@ -141,33 +141,50 @@ function corentis_admin_bar_fix() {
 add_action( 'wp_head', 'corentis_admin_bar_fix' );
 
 /**
- * Auto-create Bulletin d'Inscription page in WordPress database if missing
+ * Auto-create custom pages in WordPress database if missing
  */
-add_action( 'init', 'corentis_ensure_bulletin_page_exists' );
-function corentis_ensure_bulletin_page_exists() {
-    $slug = 'bulletin-inscription';
-    $page = get_page_by_path( $slug );
-    if ( ! $page ) {
-        $page_id = wp_insert_post( array(
-            'post_title'     => "Bulletin d'Inscription",
-            'post_name'      => $slug,
-            'post_status'    => 'publish',
-            'post_type'      => 'page',
-            'comment_status' => 'closed',
-            'ping_status'    => 'closed',
-        ) );
-        if ( $page_id && ! is_wp_error( $page_id ) ) {
-            update_post_meta( $page_id, '_wp_page_template', 'page-templates/page-bulletin-inscription.php' );
+add_action( 'init', 'corentis_ensure_custom_pages_exist' );
+function corentis_ensure_custom_pages_exist() {
+    $pages_to_ensure = array(
+        'bulletin-inscription' => array(
+            'title'    => "Bulletin d'Inscription",
+            'template' => 'page-templates/page-bulletin-inscription.php',
+        ),
+        'conseil-rh' => array(
+            'title'    => "Conseil Ressources Humaines",
+            'template' => 'page-templates/page-conseil-rh.php',
+        ),
+        'conseil-comptabilite' => array(
+            'title'    => "Conseil Comptabilité",
+            'template' => 'page-templates/page-conseil-comptabilite.php',
+        ),
+    );
+
+    foreach ( $pages_to_ensure as $slug => $data ) {
+        $page = get_page_by_path( $slug );
+        if ( ! $page ) {
+            $page_id = wp_insert_post( array(
+                'post_title'     => $data['title'],
+                'post_name'      => $slug,
+                'post_status'    => 'publish',
+                'post_type'      => 'page',
+                'comment_status' => 'closed',
+                'ping_status'    => 'closed',
+            ) );
+            if ( $page_id && ! is_wp_error( $page_id ) ) {
+                update_post_meta( $page_id, '_wp_page_template', $data['template'] );
+            }
         }
     }
 }
 
 /**
- * Direct template fallback for Bulletin d'Inscription
+ * Direct template fallback for custom pages
  */
-add_filter( 'template_include', 'corentis_bulletin_template_direct', 99 );
-function corentis_bulletin_template_direct( $template ) {
+add_filter( 'template_include', 'corentis_custom_templates_direct', 99 );
+function corentis_custom_templates_direct( $template ) {
     $req = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+
     if ( is_page( 'bulletin-inscription' ) || is_page( 'bulletin-d-inscription' ) || strpos( $req, 'bulletin-inscription' ) !== false ) {
         $custom = get_template_directory() . '/page-templates/page-bulletin-inscription.php';
         if ( file_exists( $custom ) ) {
@@ -179,6 +196,31 @@ function corentis_bulletin_template_direct( $template ) {
             return $custom;
         }
     }
+
+    if ( is_page( 'conseil-rh' ) || strpos( $req, 'conseil-rh' ) !== false ) {
+        $custom = get_template_directory() . '/page-templates/page-conseil-rh.php';
+        if ( file_exists( $custom ) ) {
+            global $wp_query;
+            if ( $wp_query ) {
+                $wp_query->is_404 = false;
+                status_header( 200 );
+            }
+            return $custom;
+        }
+    }
+
+    if ( is_page( 'conseil-comptabilite' ) || strpos( $req, 'conseil-comptabilite' ) !== false ) {
+        $custom = get_template_directory() . '/page-templates/page-conseil-comptabilite.php';
+        if ( file_exists( $custom ) ) {
+            global $wp_query;
+            if ( $wp_query ) {
+                $wp_query->is_404 = false;
+                status_header( 200 );
+            }
+            return $custom;
+        }
+    }
+
     return $template;
 }
 

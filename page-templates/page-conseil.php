@@ -66,11 +66,27 @@ get_header();
         </div>
         <div class="service-card animate-on-scroll">
           <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2980b9" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2980b9" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 16 12 12 8"/></svg>
           </div>
-          <h3>Autres domaines</h3>
-          <p>Gestion des ressources humaines, comptabilité et autres domaines de conseil spécialisé.</p>
-          <a href="<?php echo corentis_page_url('conseil-autres'); ?>" class="card-link">Découvrir</a>
+          <h3>Marketing Digital &amp; Création Web</h3>
+          <p>Stratégie digitale, conception de sites web professionnels, SEO et développement de votre visibilité en ligne.</p>
+          <a href="<?php echo corentis_page_url('conseil-digital'); ?>" class="card-link">Découvrir</a>
+        </div>
+        <div class="service-card animate-on-scroll">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2980b9" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Ressources Humaines</h3>
+          <p>Organisation RH, GPEC, référentiels de compétences, fiches de poste, climat social et pilotage de la performance.</p>
+          <a href="<?php echo corentis_page_url('conseil-rh'); ?>" class="card-link">Découvrir</a>
+        </div>
+        <div class="service-card animate-on-scroll">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2980b9" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Comptabilité</h3>
+          <p>Organisation comptable et financière, contrôle interne, tableaux de bord de gestion et optimisation des clôtures.</p>
+          <a href="<?php echo corentis_page_url('conseil-comptabilite'); ?>" class="card-link">Découvrir</a>
         </div>
       </div>
     </div>

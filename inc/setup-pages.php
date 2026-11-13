@@ -55,6 +55,16 @@ function corentis_create_pages() {
             'template' => 'page-templates/page-conseil-digital.php',
             'parent'   => 'conseil',
         ),
+        'conseil-rh' => array(
+            'title'    => 'Conseil Ressources Humaines',
+            'template' => 'page-templates/page-conseil-rh.php',
+            'parent'   => 'conseil',
+        ),
+        'conseil-comptabilite' => array(
+            'title'    => 'Conseil Comptabilité',
+            'template' => 'page-templates/page-conseil-comptabilite.php',
+            'parent'   => 'conseil',
+        ),
         'conseil-autres' => array(
             'title'    => 'Conseil Autres',
             'template' => 'page-templates/page-conseil-autres.php',

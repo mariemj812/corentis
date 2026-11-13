@@ -39,6 +39,9 @@ if (! defined('ABSPATH')) exit;
           <li><a href="<?php echo corentis_page_url('conseil-sst'); ?>">Santé &amp; Sécurité</a></li>
           <li><a href="<?php echo corentis_page_url('conseil-hygiene'); ?>">Hygiène alimentaire</a></li>
           <li><a href="<?php echo corentis_page_url('conseil-social'); ?>">Social</a></li>
+          <li><a href="<?php echo corentis_page_url('conseil-digital'); ?>">Marketing Digital</a></li>
+          <li><a href="<?php echo corentis_page_url('conseil-rh'); ?>">Ressources Humaines</a></li>
+          <li><a href="<?php echo corentis_page_url('conseil-comptabilite'); ?>">Comptabilité</a></li>
         </ul>
       </div>
       <div class="footer-col">
