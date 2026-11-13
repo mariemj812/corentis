@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 ?>
 
-<section class="page-header">
+<section class="page-header" style="background-image: url('<?php echo corentis_img('formation.png'); ?>')">
     <div class="container">
       <h1>Formation</h1>
       <div class="breadcrumb"><a href="<?php echo home_url('/'); ?>">Accueil</a><span class="sep">/</span><span>Formation</span></div>

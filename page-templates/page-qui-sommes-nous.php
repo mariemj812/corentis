@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <!-- PAGE HEADER -->
-  <section class="page-header">
+  <section class="page-header" style="background-image: url('<?php echo corentis_img('team.png'); ?>')">
     <div class="container">
       <h1>Qui sommes-nous</h1>
       <div class="breadcrumb">

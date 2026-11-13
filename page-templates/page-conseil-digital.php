@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 ?>
 
-<section class="page-header"><div class="container"><h1>Marketing Digital & Création Web</h1><div class="breadcrumb"><a href="<?php echo home_url('/'); ?>">Accueil</a><span class="sep">/</span><a href="<?php echo corentis_page_url('conseil'); ?>">Conseil</a><span class="sep">/</span><span>Marketing Digital</span></div></div></section>
+<section class="page-header" style="background-image: url('<?php echo corentis_img('digital.png'); ?>')"><div class="container"><h1>Marketing Digital & Création Web</h1><div class="breadcrumb"><a href="<?php echo home_url('/'); ?>">Accueil</a><span class="sep">/</span><a href="<?php echo corentis_page_url('conseil'); ?>">Conseil</a><span class="sep">/</span><span>Marketing Digital</span></div></div></section>
 
   <section class="section">
     <div class="container">
