@@ -24,7 +24,13 @@ get_header();
           <h2 style="margin-bottom:var(--space-lg);">Renforcez les compétences <span style="color:var(--blue-500);">de vos équipes</span></h2>
           <p style="margin-bottom:var(--space-lg);">Corentis Consulting Group propose des programmes de formation sur mesure, conçus pour développer les compétences de vos collaborateurs dans les domaines clés du management de la qualité, de l'environnement, de la santé et sécurité au travail, et bien plus encore.</p>
           <p style="margin-bottom:var(--space-xl);">Nos formations sont dispensées par des experts certifiés, combinant théorie et pratique pour garantir une montée en compétences efficace et durable. Chaque programme est adapté aux besoins spécifiques de votre organisation.</p>
-          <a href="<?php echo corentis_page_url('devis'); ?>" class="btn btn-primary">Demander un programme</a>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+            <a href="<?php echo corentis_pdf('Catalogue_Formations_CORENTIS_IHET_2026_2027.pdf'); ?>" class="btn btn-primary" download="Catalogue_Formations_CORENTIS_IHET_2026_2027.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Télécharger le catalogue
+            </a>
+            <a href="<?php echo corentis_page_url('devis'); ?>" class="btn btn-outline">Demander un devis</a>
+          </div>
         </div>
         <img src="<?php echo corentis_img('formation.png'); ?>" alt="Formation Corentis">
       </div>
@@ -75,9 +81,12 @@ get_header();
   <section class="cta-section">
     <div class="container">
       <h2 class="animate-on-scroll">Investissez dans vos talents</h2>
-      <p class="animate-on-scroll">Contactez-nous pour concevoir un programme de formation adapté à vos besoins.</p>
+      <p class="animate-on-scroll">Découvrez notre catalogue complet de formations certifiantes ou contactez-nous pour un programme sur mesure.</p>
       <div class="cta-buttons animate-on-scroll">
-        <a href="<?php echo corentis_page_url('devis'); ?>" class="btn btn-white">Demander un devis</a>
+        <a href="<?php echo corentis_pdf('Catalogue_Formations_CORENTIS_IHET_2026_2027.pdf'); ?>" class="btn btn-white" download="Catalogue_Formations_CORENTIS_IHET_2026_2027.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Télécharger le catalogue
+        </a>
         <a href="<?php echo corentis_page_url('contact'); ?>" class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;">Nous contacter</a>
       </div>
     </div>

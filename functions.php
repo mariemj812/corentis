@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Theme version
-define( 'CORENTIS_VERSION', '1.6.7' );
+define( 'CORENTIS_VERSION', '1.6.8' );
 
 /**
  * Theme Setup
@@ -93,6 +93,13 @@ function corentis_remove_css_import( $html, $handle ) {
  */
 function corentis_img( $filename ) {
     return get_template_directory_uri() . '/images/' . $filename;
+}
+
+/**
+ * Helper: Get theme PDF URL
+ */
+function corentis_pdf( $filename ) {
+    return get_template_directory_uri() . '/pdf/' . $filename;
 }
 
 /**
