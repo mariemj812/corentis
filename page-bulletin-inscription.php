@@ -6,3 +6,4 @@
  */
 
 require_once get_template_directory() . '/page-templates/page-bulletin-inscription.php';
+
