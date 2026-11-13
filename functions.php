@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Theme version
-define( 'CORENTIS_VERSION', '1.7.1' );
+define( 'CORENTIS_VERSION', '1.7.2' );
 
 /**
  * Theme Setup
