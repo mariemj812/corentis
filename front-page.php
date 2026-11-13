@@ -232,6 +232,18 @@ get_header();
               'name' => 'Prêt à Manger',
               'file' => 'clients/pret-a-manger.jpg',
           ),
+          array(
+              'name' => 'Bâtiment et Travaux Publics',
+              'file' => 'clients/batiment-travaux-publics.png',
+          ),
+          array(
+              'name' => 'SOMTP',
+              'file' => 'clients/somtp.png',
+          ),
+          array(
+              'name' => 'Sté Halfaoui Jilani - Travaux Publics',
+              'file' => 'clients/ste-halfaoui-jilani-travaux-publics.png',
+          ),
       );
       ?>
       <div class="partners-track-wrapper">
