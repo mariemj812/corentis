@@ -89,8 +89,8 @@ get_header();
             <polygon points="12 8 8 12 12 16 16 12 12 8" />
           </svg>
         </div>
-        <h3>Marketing Digital &amp; Création Web</h3>
-        <p>Stratégie digitale, conception de sites web professionnels, SEO et développement de votre visibilité en ligne.</p>
+        <h3>Marketing Digital</h3>
+        <p>Stratégie digitale, acquisition de clients, référencement SEO, réseaux sociaux et montée en compétences de vos équipes.</p>
         <a href="<?php echo corentis_page_url('conseil-digital'); ?>" class="card-link">Découvrir</a>
       </div>
       <div class="service-card animate-on-scroll">

@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Theme version
-define( 'CORENTIS_VERSION', '1.7.5' );
+define( 'CORENTIS_VERSION', '1.7.6' );
 
 /**
  * Theme Setup
@@ -231,6 +231,18 @@ function corentis_custom_templates_direct( $template ) {
 
     if ( is_page( 'audit-diagnostic-entreprise' ) || is_page( 'audit-diagnostic' ) || strpos( $req, 'audit-diagnostic-entreprise' ) !== false || strpos( $req, 'audit-diagnostic' ) !== false ) {
         $custom = get_template_directory() . '/page-templates/page-audit-diagnostic-entreprise.php';
+        if ( file_exists( $custom ) ) {
+            global $wp_query;
+            if ( $wp_query ) {
+                $wp_query->is_404 = false;
+                status_header( 200 );
+            }
+            return $custom;
+        }
+    }
+
+    if ( is_page( 'conseil-digital' ) || strpos( $req, 'conseil-digital' ) !== false ) {
+        $custom = get_template_directory() . '/page-templates/page-conseil-digital.php';
         if ( file_exists( $custom ) ) {
             global $wp_query;
             if ( $wp_query ) {
