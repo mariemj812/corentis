@@ -794,18 +794,22 @@ p {
   padding-bottom: var(--space-3xl);
   background-color: #0b1329;
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
   text-align: center;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .page-header::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(11, 20, 42, 0.82) 0%, rgba(20, 50, 110, 0.72) 50%, rgba(11, 20, 42, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(11, 19, 43, 0.55) 0%, rgba(11, 19, 43, 0.20) 50%, rgba(11, 19, 43, 0.65) 100%);
   z-index: 0;
   pointer-events: none;
 }
@@ -819,11 +823,11 @@ p {
   color: var(--white);
   position: relative;
   z-index: 1;
-  font-size: 2.3rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-md);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
 }
 
 .page-header .breadcrumb {
@@ -833,8 +837,9 @@ p {
   justify-content: center;
   align-items: center;
   gap: var(--space-sm);
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 0.95rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 color: rgba(255, 255, 255, 0.7);
