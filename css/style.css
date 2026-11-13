@@ -1308,41 +1308,462 @@ p {
   color: var(--grey-600);
 }
 
-/* ---------- DEVIS PAGE ---------- */
+/* ---------- DEVIS & QUESTIONNAIRE PRÉ-DIAGNOSTIC ---------- */
 .devis-form-wrap {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
-.devis-services {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-sm);
+.devis-intro-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
-.devis-services label {
+.devis-intro-card .badge-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(37, 99, 235, 0.10);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  border-radius: 30px;
+  color: var(--blue-600);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.devis-intro-card h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--grey-900);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.devis-intro-card .objet-badge {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--blue-700);
+  background: var(--blue-50);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
+  border-left: 3px solid var(--blue-600);
+}
+
+.devis-intro-card .intro-text {
+  color: var(--grey-700);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.devis-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.devis-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  color: var(--grey-800);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.devis-benefit-item .icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue-50);
+  color: var(--blue-600);
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  padding: 10px 14px;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Sections du Questionnaire */
+.devis-section {
+  background: #ffffff;
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.devis-section:focus-within {
+  border-color: var(--blue-300);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.07);
+}
+
+.devis-section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1.5px solid var(--grey-100);
+}
+
+.devis-section-num {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.devis-section-title {
+  flex: 1;
+}
+
+.devis-section-title h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--grey-900);
+  margin-bottom: 4px;
+}
+
+.devis-section-title p {
+  color: var(--grey-500);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.sub-question {
+  margin-bottom: 26px;
+}
+
+.sub-question:last-child {
+  margin-bottom: 0;
+}
+
+.sub-question-title {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--grey-800);
+  margin-bottom: 10px;
+}
+
+/* Grilles de Choix (Puces interactives) */
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.choice-grid.cols-3 {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.choice-grid.cols-2 {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.choice-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
   background: var(--grey-50);
-  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--grey-200);
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--transition-fast);
   font-size: 0.9rem;
-  color: var(--grey-700);
-  border: 1.5px solid transparent;
+  color: var(--grey-800);
+  user-select: none;
 }
 
-.devis-services label:hover {
-  background: var(--blue-50);
-  border-color: var(--blue-200);
+.choice-card:hover {
+  background: #f0f7ff;
+  border-color: var(--blue-300);
+  transform: translateY(-1px);
 }
 
-.devis-services input[type="checkbox"] {
+.choice-card input[type="checkbox"],
+.choice-card input[type="radio"] {
   width: 18px;
   height: 18px;
-  accent-color: var(--blue-500);
+  accent-color: var(--blue-600);
+  flex-shrink: 0;
+}
+
+.choice-card.is-selected,
+.choice-card:has(input:checked) {
+  background: #eff6ff;
+  border-color: var(--blue-600);
+  color: var(--blue-900);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+}
+
+/* Cartes ISO spécialisées */
+.iso-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.iso-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--grey-50);
+  border: 1.5px solid var(--grey-200);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.iso-card:hover {
+  background: #f0f7ff;
+  border-color: var(--blue-300);
+}
+
+.iso-card:has(input:checked) {
+  background: #eff6ff;
+  border-color: var(--blue-600);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.iso-card input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--blue-600);
+  flex-shrink: 0;
+}
+
+.iso-card .iso-info strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.98rem;
+  color: var(--blue-900);
+  margin-bottom: 2px;
+}
+
+.iso-card .iso-info span {
+  font-size: 0.82rem;
+  color: var(--grey-600);
+  line-height: 1.35;
+}
+
+/* Boîte conditionnelle */
+.conditional-box {
+  display: none;
+  margin-top: 16px;
+  padding: 20px 24px;
+  background: #f8fafc;
+  border: 1px solid var(--grey-200);
+  border-left: 4px solid var(--blue-600);
+  border-radius: var(--radius-md);
+  animation: fadeInDown 0.3s ease;
+}
+
+.conditional-box.active {
+  display: block;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .form-row-3 {
+    grid-template-columns: 1fr;
+  }
+  .devis-section {
+    padding: 24px 20px;
+  }
+  .devis-intro-card {
+    padding: 24px 20px;
+  }
+  .choice-grid.cols-2,
+  .choice-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+  .iso-choice-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Carte de soumission finale */
+.submit-card {
+  background: linear-gradient(135deg, #081024 0%, #1e293b 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.submit-card .attestation {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.submit-card .attestation input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--blue-400);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.submit-card .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: 24px;
+}
+
+.submit-card .form-group label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.submit-card .form-group input {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: #ffffff;
+}
+
+.submit-card .form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.submit-card .form-group input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #38bdf8;
+}
+
+.submit-card .btn-submit-main {
+  width: 100%;
+  padding: 18px 32px;
+  background: linear-gradient(90deg, #2563eb 0%, #0284c7 100%);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+}
+
+.submit-card .btn-submit-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(37, 99, 235, 0.55);
+}
+
+.submit-card .reassurance {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.form-success-banner {
+  display: none;
+  background: #f0fdf4;
+  border: 2px solid #22c55e;
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.15);
+}
+
+.form-success-banner.active {
+  display: block;
+}
+
+.form-success-banner .success-icon {
+  width: 60px;
+  height: 60px;
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.form-success-banner h3 {
+  color: #15803d;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.form-success-banner p {
+  color: #166534;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* ---------- ANIMATIONS ---------- */
