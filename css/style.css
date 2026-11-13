@@ -788,58 +788,92 @@ p {
   flex-wrap: wrap;
 }
 
-/* ---------- PAGE HEADER ---------- */
+/* ---------- PAGE HEADER (FULL IMAGE VISIBLE - SPLIT LAYOUT) ---------- */
 .page-header {
-  padding-top: calc(var(--nav-height) + var(--space-4xl));
-  padding-bottom: var(--space-3xl);
+  padding-top: calc(var(--nav-height) + var(--space-xl));
+  padding-bottom: var(--space-2xl);
   background-color: #0b1329;
-  background-size: cover;
-  background-position: center center;
+  background-size: contain;
+  background-position: right 5% center;
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  text-align: center;
-  min-height: 360px;
+  min-height: 400px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .page-header::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(11, 19, 43, 0.55) 0%, rgba(11, 19, 43, 0.20) 50%, rgba(11, 19, 43, 0.65) 100%);
-  z-index: 0;
+  background: linear-gradient(90deg, #0b1329 0%, #0b1329 45%, rgba(11, 19, 41, 0.25) 75%, rgba(11, 19, 41, 0) 100%);
+  z-index: 1;
   pointer-events: none;
 }
 
 .page-header .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  width: 100%;
 }
 
 .page-header h1 {
   color: var(--white);
-  position: relative;
-  z-index: 1;
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-md);
-  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
+  text-align: left;
+  max-width: 580px;
 }
 
 .page-header .breadcrumb {
-  position: relative;
-  z-index: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: var(--space-sm);
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.page-header .breadcrumb a {
+  color: rgba(255, 255, 255, 0.75);
+  transition: color var(--transition-fast);
+}
+
+.page-header .breadcrumb a:hover {
+  color: var(--white);
+}
+
+.page-header .breadcrumb .sep {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .page-header {
+    background-size: auto 60%;
+    background-position: right bottom;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    background-position: center bottom;
+    background-size: auto 180px;
+    padding-bottom: 220px;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    text-align: center;
+    font-size: 2rem;
+    max-width: 100%;
+  }
+
+  .page-header .breadcrumb {
+    justify-content: center;
+  }
 }
 
 color: rgba(255, 255, 255, 0.7);
