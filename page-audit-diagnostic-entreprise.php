@@ -6,3 +6,4 @@
  */
 
 require_once get_template_directory() . '/page-templates/page-audit-diagnostic-entreprise.php';
+

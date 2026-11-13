@@ -41,7 +41,7 @@ get_header();
             <span class="iso-tag">Business Plan bancable</span>
             <span class="iso-tag">Financement &amp; Subventions</span>
             <span class="iso-tag">Organisation &amp; Procédures</span>
-            <span class="iso-tag">Audit &amp; Diagnostic</span>
+            <span class="iso-tag">Pilotage &amp; Stratégie</span>
             <span class="iso-tag">Développement &amp; Croissance</span>
           </div>
         </div>
@@ -120,22 +120,7 @@ get_header();
           </ul>
         </div>
 
-        <!-- PÔLE 5 : AUDIT ET DIAGNOSTIC -->
-        <div class="service-card animate-on-scroll">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          </div>
-          <h3>Audit &amp; Diagnostic d'Entreprise</h3>
-          <ul style="margin:12px 0 0;padding-left:18px;font-size:0.92rem;color:var(--color-text-muted);line-height:1.7;">
-            <li>Audit organisationnel et managérial</li>
-            <li>Audit financier et contrôle de gestion</li>
-            <li>Audit de conformité des procédures internes</li>
-            <li>Diagnostic approfondi de performance et d'efficacité</li>
-            <li>Audit de conformité réglementaire, juridique et fiscale</li>
-          </ul>
-        </div>
-
-        <!-- PÔLE 6 : DÉVELOPPEMENT ET CROISSANCE -->
+        <!-- PÔLE 5 : DÉVELOPPEMENT ET CROISSANCE -->
         <div class="service-card animate-on-scroll">
           <div class="icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
@@ -190,7 +175,7 @@ get_header();
           <h3 style="font-family:'Outfit',sans-serif;font-size:1.25rem;color:#0f2756;margin-bottom:12px;">Pack Organisation &amp; Performance</h3>
           <p style="font-size:0.9rem;color:#475569;margin-bottom:16px;">Structurez vos opérations, fluidifiez vos processus et pilotez vos indicateurs clés.</p>
           <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;font-weight:600;font-size:0.88rem;color:#1e3a8a;">
-            Diagnostic &rarr; Organisation &rarr; Procédures &rarr; Tableaux de bord
+            Cadrage &rarr; Organisation &rarr; Procédures &rarr; Tableaux de bord
           </div>
         </div>
 
@@ -200,7 +185,7 @@ get_header();
           <h3 style="font-family:'Outfit',sans-serif;font-size:1.25rem;color:#0f2756;margin-bottom:12px;">Pack Développement</h3>
           <p style="font-size:0.9rem;color:#475569;margin-bottom:16px;">Accélérez votre expansion, conquérez de nouveaux marchés et suivez vos performances.</p>
           <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;font-weight:600;font-size:0.88rem;color:#1e3a8a;">
-            Audit &rarr; Stratégie &rarr; Croissance &rarr; Suivi des performances
+            Vision &rarr; Stratégie &rarr; Croissance &rarr; Suivi des performances
           </div>
         </div>
 

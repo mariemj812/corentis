@@ -114,7 +114,7 @@ get_header();
           </svg>
         </div>
         <h3>Accompagnement de l'Entreprise</h3>
-        <p>De la création au développement : business plans bancables, recherche de financement, organisation interne et audits de performance.</p>
+        <p>De la création au développement : business plans bancables, recherche de financement, organisation interne et stratégie de croissance.</p>
         <a href="<?php echo corentis_page_url('accompagnement-entreprise'); ?>" class="card-link">Découvrir</a>
       </div>
     </div>
