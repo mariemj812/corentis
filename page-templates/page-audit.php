@@ -67,6 +67,14 @@ get_header();
             <a href="<?php echo corentis_page_url('audit-agroalimentaire'); ?>" class="card-link" style="margin-top:var(--space-md);display:inline-flex;">Découvrir</a>
           </div>
         </div>
+        <div class="audit-card animate-on-scroll">
+          <div class="card-image"><img src="<?php echo corentis_img('audit.png'); ?>" alt="Audit & Diagnostic d'Entreprise"></div>
+          <div class="card-body">
+            <h3>Audit &amp; Diagnostic d'Entreprise</h3>
+            <p>Audit organisationnel, financier, des procédures et diagnostic global de performance pour optimiser la gouvernance et sécuriser la croissance.</p>
+            <a href="<?php echo corentis_page_url('audit-diagnostic-entreprise'); ?>" class="card-link" style="margin-top:var(--space-md);display:inline-flex;">Découvrir</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

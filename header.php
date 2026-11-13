@@ -87,7 +87,7 @@ if (! defined('ABSPATH')) exit;
           </div>
         </li>
         <li>
-          <a href="<?php echo corentis_page_url('audit'); ?>" <?php if (is_page(array('audit', 'audit-qualite', 'audit-environnement', 'audit-sst', 'audit-qhse', 'audit-social', 'audit-agroalimentaire'))) echo ' class="active"'; ?>>Audit <span class="arrow">▼</span></a>
+          <a href="<?php echo corentis_page_url('audit'); ?>" <?php if (is_page(array('audit', 'audit-qualite', 'audit-environnement', 'audit-sst', 'audit-qhse', 'audit-social', 'audit-agroalimentaire', 'audit-diagnostic-entreprise'))) echo ' class="active"'; ?>>Audit <span class="arrow">▼</span></a>
           <div class="dropdown">
             <a href="<?php echo corentis_page_url('audit-qualite'); ?>">Audit Qualité</a>
             <a href="<?php echo corentis_page_url('audit-environnement'); ?>">Audit Environnement</a>
@@ -95,6 +95,7 @@ if (! defined('ABSPATH')) exit;
             <a href="<?php echo corentis_page_url('audit-qhse'); ?>">Audit intégré QHSE</a>
             <a href="<?php echo corentis_page_url('audit-social'); ?>">Audit Social</a>
             <a href="<?php echo corentis_page_url('audit-agroalimentaire'); ?>">Audit Agroalimentaire</a>
+            <a href="<?php echo corentis_page_url('audit-diagnostic-entreprise'); ?>">Audit &amp; Diagnostic d'Entreprise</a>
           </div>
         </li>
         <li><a href="<?php echo corentis_page_url('devis'); ?>" <?php if (is_page('devis')) echo ' class="active"'; ?>>Devis</a></li>

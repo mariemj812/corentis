@@ -110,6 +110,11 @@ function corentis_create_pages() {
             'template' => 'page-templates/page-audit-agroalimentaire.php',
             'parent'   => 'audit',
         ),
+        'audit-diagnostic-entreprise' => array(
+            'title'    => "Audit & Diagnostic d'Entreprise",
+            'template' => 'page-templates/page-audit-diagnostic-entreprise.php',
+            'parent'   => 'audit',
+        ),
         'devis' => array(
             'title'    => 'Demander un Devis',
             'template' => 'page-templates/page-devis.php',

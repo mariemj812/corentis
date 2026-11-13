@@ -53,6 +53,7 @@ if (! defined('ABSPATH')) exit;
           <li><a href="<?php echo corentis_page_url('audit-qhse'); ?>">Audit QHSE</a></li>
           <li><a href="<?php echo corentis_page_url('audit-social'); ?>">Audit Social</a></li>
           <li><a href="<?php echo corentis_page_url('audit-agroalimentaire'); ?>">Audit Agroalimentaire</a></li>
+          <li><a href="<?php echo corentis_page_url('audit-diagnostic-entreprise'); ?>">Audit &amp; Diagnostic d'Entreprise</a></li>
         </ul>
       </div>
       <div class="footer-col">

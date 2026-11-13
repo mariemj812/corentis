@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Theme version
-define( 'CORENTIS_VERSION', '1.7.4' );
+define( 'CORENTIS_VERSION', '1.7.5' );
 
 /**
  * Theme Setup
@@ -162,6 +162,10 @@ function corentis_ensure_custom_pages_exist() {
             'title'    => "Conseil Comptabilité",
             'template' => 'page-templates/page-accompagnement-entreprise.php',
         ),
+        'audit-diagnostic-entreprise' => array(
+            'title'    => "Audit & Diagnostic d'Entreprise",
+            'template' => 'page-templates/page-audit-diagnostic-entreprise.php',
+        ),
     );
 
     foreach ( $pages_to_ensure as $slug => $data ) {
@@ -215,6 +219,18 @@ function corentis_custom_templates_direct( $template ) {
 
     if ( is_page( 'accompagnement-entreprise' ) || is_page( 'conseil-comptabilite' ) || strpos( $req, 'accompagnement-entreprise' ) !== false || strpos( $req, 'conseil-comptabilite' ) !== false ) {
         $custom = get_template_directory() . '/page-templates/page-accompagnement-entreprise.php';
+        if ( file_exists( $custom ) ) {
+            global $wp_query;
+            if ( $wp_query ) {
+                $wp_query->is_404 = false;
+                status_header( 200 );
+            }
+            return $custom;
+        }
+    }
+
+    if ( is_page( 'audit-diagnostic-entreprise' ) || is_page( 'audit-diagnostic' ) || strpos( $req, 'audit-diagnostic-entreprise' ) !== false || strpos( $req, 'audit-diagnostic' ) !== false ) {
+        $custom = get_template_directory() . '/page-templates/page-audit-diagnostic-entreprise.php';
         if ( file_exists( $custom ) ) {
             global $wp_query;
             if ( $wp_query ) {
