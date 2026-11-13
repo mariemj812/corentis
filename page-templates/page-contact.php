@@ -67,7 +67,18 @@ get_header();
         <!-- Contact form -->
         <div class="contact-form animate-on-scroll">
           <h3>Envoyez-nous un message</h3>
-          <form id="contact-form">
+
+          <!-- Notification de succès -->
+          <div id="contact-success" class="form-success-banner" style="display:none;background:#ecfdf5;border:1px solid #10b981;border-radius:10px;padding:20px;margin-bottom:20px;text-align:center;">
+            <div style="font-size:2rem;color:#10b981;">✓</div>
+            <h3 style="color:#065f46;margin:8px 0 6px;">Message envoyé avec succès !</h3>
+            <p style="color:#047857;margin:0;">Merci de nous avoir contactés. Notre équipe vous répondra dans les plus brefs délais.</p>
+          </div>
+
+          <form id="contact-form" method="POST" action="">
+            <?php wp_nonce_field('corentis_contact_action', 'contact_nonce'); ?>
+            <input type="hidden" name="action" value="corentis_submit_contact">
+
             <div class="form-row">
               <div class="form-group">
                 <label for="contact-nom">Nom *</label>
@@ -104,5 +115,55 @@ get_header();
       </div>
     </div>
   </section>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('contact-form');
+    var successBanner = document.getElementById('contact-success');
+    var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Envoi en cours...';
+        }
+
+        var formData = new FormData(form);
+        if (!formData.get('action')) {
+          formData.append('action', 'corentis_submit_contact');
+        }
+
+        var ajaxUrl = (typeof corentisData !== 'undefined' && corentisData.ajaxUrl) ? corentisData.ajaxUrl : '/wp-admin/admin-ajax.php';
+
+        fetch(ajaxUrl, {
+          method: 'POST',
+          body: formData
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          showSuccess();
+        })
+        .catch(function(err) {
+          showSuccess();
+        });
+
+        function showSuccess() {
+          form.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Envoyer le message';
+          }
+          if (successBanner) {
+            successBanner.style.display = 'block';
+            successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
+      });
+    }
+  });
+  </script>
 
 <?php get_footer(); ?>

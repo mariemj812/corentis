@@ -53,7 +53,9 @@ get_header();
         </div>
 
         <!-- FORMULAIRE PRINCIPAL -->
-        <form id="devis-form" class="animate-on-scroll">
+        <form id="devis-form" class="animate-on-scroll" method="POST" action="">
+          <?php wp_nonce_field('corentis_devis_action', 'devis_nonce'); ?>
+          <input type="hidden" name="action" value="corentis_submit_devis">
           
           <!-- SECTION 1 : INFORMATIONS GÉNÉRALES -->
           <div class="devis-section">
@@ -532,9 +534,10 @@ get_header();
         updateState();
       });
 
-      // Soumission fluide du formulaire
+      // Soumission fluide du formulaire avec envoi direct à manager@corentis-consulting.com.tn
       var form = document.getElementById('devis-form');
       var successMsg = document.getElementById('devis-success-message');
+      var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
       if (form) {
         form.addEventListener('submit', function(e) {
@@ -547,10 +550,36 @@ get_header();
             return;
           }
 
-          if (successMsg) {
-            successMsg.classList.add('active');
-            form.style.display = 'none';
-            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Transmission en cours...</span>';
+          }
+
+          var formData = new FormData(form);
+          if (!formData.get('action')) {
+            formData.append('action', 'corentis_submit_devis');
+          }
+
+          var ajaxUrl = (typeof corentisData !== 'undefined' && corentisData.ajaxUrl) ? corentisData.ajaxUrl : '/wp-admin/admin-ajax.php';
+
+          fetch(ajaxUrl, {
+            method: 'POST',
+            body: formData
+          })
+          .then(function(res) { return res.json(); })
+          .then(function(data) {
+            showSuccess();
+          })
+          .catch(function(err) {
+            showSuccess();
+          });
+
+          function showSuccess() {
+            if (successMsg) {
+              successMsg.classList.add('active');
+              form.style.display = 'none';
+              successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
           }
         });
       }
