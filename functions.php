@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Theme version
-define( 'CORENTIS_VERSION', '1.7.6' );
+define( 'CORENTIS_VERSION', '1.7.7' );
 
 /**
  * Theme Setup
@@ -100,7 +100,7 @@ function corentis_remove_css_import( $html, $handle ) {
  * Helper: Get theme image URL
  */
 function corentis_img( $filename ) {
-    return get_template_directory_uri() . '/images/' . $filename;
+    return get_template_directory_uri() . '/images/' . $filename . '?v=' . CORENTIS_VERSION;
 }
 
 /**
