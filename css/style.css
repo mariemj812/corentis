@@ -75,7 +75,7 @@
   --transition-slow: 0.6s var(--ease-out);
 
   /* Layout */
-  --nav-height: 80px;
+  --nav-height: 115px;
   --max-width: 1280px;
 }
 
@@ -266,18 +266,14 @@ p {
   height: var(--nav-height);
   z-index: 1000;
   transition: all var(--transition-normal);
-  background: rgba(8, 16, 32, 0.90);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid var(--grey-200);
+  box-shadow: var(--shadow-sm);
 }
 
 .navbar .container {
@@ -288,9 +284,9 @@ p {
 }
 
 .nav-logo img {
-  height: 52px;
+  height: 144px;
   width: auto;
-  max-width: 220px;
+  max-width: 320px;
   object-fit: contain;
   transition: transform var(--transition-fast);
 }
