@@ -107,7 +107,27 @@ get_header();
         <div class="domain-card animate-on-scroll">
           <div class="domain-icon">📊</div>
           <h3>Management</h3>
-          <p>ISO 21001, ISO 22716, ISO 31001</p>
+          <p>ISO 22716, ISO 31000, ISO 37001</p>
+        </div>
+        <div class="domain-card animate-on-scroll">
+          <div class="domain-icon">💼</div>
+          <h3>Services</h3>
+          <p>ISO 9001, Qualité de service, Relation client</p>
+        </div>
+        <div class="domain-card animate-on-scroll">
+          <div class="domain-icon">🏗️</div>
+          <h3>Travaux Publics</h3>
+          <p>ISO 45001, ISO 14001, Sécurité des chantiers</p>
+        </div>
+        <div class="domain-card animate-on-scroll">
+          <div class="domain-icon">🏥</div>
+          <h3>Cliniques &amp; Établissements Sanitaires</h3>
+          <p>ISO 7101, Hygiène hospitalière, Risques sanitaires</p>
+        </div>
+        <div class="domain-card animate-on-scroll">
+          <div class="domain-icon">🎓</div>
+          <h3>Enseignement &amp; Formation</h3>
+          <p>ISO 21001, Ingénierie pédagogique, Qualité</p>
         </div>
       </div>
     </div>
