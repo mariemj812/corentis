@@ -2127,37 +2127,77 @@ p {
 
 /* ---------- PARTNERS / TRUST LOGOS ---------- */
 .partners-section {
-  padding: var(--space-3xl) 0;
-  background: var(--white);
+  padding: var(--space-4xl) 0;
+  background: #f8fafc;
   overflow: hidden;
+  position: relative;
 }
 
 .partners-track-wrapper {
   overflow: hidden;
   position: relative;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  padding: 18px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .partners-track {
   display: flex;
   align-items: center;
-  gap: var(--space-3xl);
-  animation: scrollPartners 30s linear infinite;
+  gap: 22px;
+  animation: scrollPartners 40s linear infinite;
   width: max-content;
+}
+
+.partners-track-wrapper:hover .partners-track {
+  animation-play-state: paused;
+}
+
+.partner-card {
+  width: 175px;
+  height: 85px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.12);
+  border-color: #93c5fd;
+  background: #ffffff;
+}
+
+.partner-card img {
+  max-width: 100%;
+  max-height: 56px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.partner-card:hover img {
+  transform: scale(1.05);
 }
 
 .partner-logo {
   height: 50px;
-  opacity: 0.4;
-  filter: grayscale(100%);
+  opacity: 0.7;
   transition: all var(--transition-normal);
   flex-shrink: 0;
 }
 
 .partner-logo:hover {
   opacity: 1;
-  filter: grayscale(0%);
 }
 
 @keyframes scrollPartners {

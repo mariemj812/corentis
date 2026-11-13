@@ -202,13 +202,46 @@ get_header();
         <h2>Ils nous font confiance</h2>
         <p>Des entreprises de tous secteurs nous accordent leur confiance pour leurs projets de certification et d'amélioration continue.</p>
       </div>
+      <?php
+      $clients = array(
+          array(
+              'name' => 'BTK Leasing',
+              'file' => 'clients/btk-leasing.png',
+          ),
+          array(
+              'name' => 'Ennakl Automobiles',
+              'file' => 'clients/ennakl-automobiles.png',
+          ),
+          array(
+              'name' => 'Carthasia Health Services',
+              'file' => 'clients/carthasia-health-services.jpg',
+          ),
+          array(
+              'name' => 'Structura Confort',
+              'file' => 'clients/structura-confort.jpg',
+          ),
+          array(
+              'name' => 'IHET - Institut des Hautes Études Touristiques',
+              'file' => 'clients/ihet.jpg',
+          ),
+          array(
+              'name' => 'Aviator Travel Services',
+              'file' => 'clients/aviator-travel-services.jpg',
+          ),
+          array(
+              'name' => 'Prêt à Manger',
+              'file' => 'clients/pret-a-manger.jpg',
+          ),
+      );
+      ?>
       <div class="partners-track-wrapper">
         <div class="partners-track" id="partners-track">
-          <?php for ( $i = 1; $i <= 8; $i++ ) : ?>
-          <svg class="partner-logo" width="140" height="50" viewBox="0 0 140 50"><rect width="140" height="50" rx="8" fill="#e2e8f0"/><text x="70" y="30" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12" font-weight="600">Client <?php echo $i; ?></text></svg>
-          <?php endfor; ?>
-          <?php for ( $i = 1; $i <= 8; $i++ ) : ?>
-          <svg class="partner-logo" width="140" height="50" viewBox="0 0 140 50"><rect width="140" height="50" rx="8" fill="#e2e8f0"/><text x="70" y="30" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12" font-weight="600">Client <?php echo $i; ?></text></svg>
+          <?php for ( $loop = 0; $loop < 4; $loop++ ) : ?>
+            <?php foreach ( $clients as $client ) : ?>
+              <div class="partner-card" title="<?php echo esc_attr( $client['name'] ); ?>">
+                <img src="<?php echo corentis_img( $client['file'] ); ?>" alt="<?php echo esc_attr( $client['name'] ); ?>" loading="lazy">
+              </div>
+            <?php endforeach; ?>
           <?php endfor; ?>
         </div>
       </div>
