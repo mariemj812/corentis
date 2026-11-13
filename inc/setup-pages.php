@@ -60,9 +60,14 @@ function corentis_create_pages() {
             'template' => 'page-templates/page-conseil-rh.php',
             'parent'   => 'conseil',
         ),
+        'accompagnement-entreprise' => array(
+            'title'    => "Accompagnement de l'Entreprise",
+            'template' => 'page-templates/page-accompagnement-entreprise.php',
+            'parent'   => 'conseil',
+        ),
         'conseil-comptabilite' => array(
             'title'    => 'Conseil Comptabilité',
-            'template' => 'page-templates/page-conseil-comptabilite.php',
+            'template' => 'page-templates/page-accompagnement-entreprise.php',
             'parent'   => 'conseil',
         ),
         'conseil-autres' => array(

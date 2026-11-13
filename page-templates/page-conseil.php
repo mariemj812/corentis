@@ -82,11 +82,11 @@ get_header();
         </div>
         <div class="service-card animate-on-scroll">
           <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2980b9" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2980b9" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
           </div>
-          <h3>Comptabilité</h3>
-          <p>Organisation comptable et financière, contrôle interne, tableaux de bord de gestion et optimisation des clôtures.</p>
-          <a href="<?php echo corentis_page_url('conseil-comptabilite'); ?>" class="card-link">Découvrir</a>
+          <h3>Accompagnement de l'Entreprise</h3>
+          <p>De la création au développement : business plans bancables, recherche de financement, organisation interne et audits de performance.</p>
+          <a href="<?php echo corentis_page_url('accompagnement-entreprise'); ?>" class="card-link">Découvrir</a>
         </div>
       </div>
     </div>

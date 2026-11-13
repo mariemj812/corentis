@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Theme version
-define( 'CORENTIS_VERSION', '1.7.3' );
+define( 'CORENTIS_VERSION', '1.7.4' );
 
 /**
  * Theme Setup
@@ -154,9 +154,13 @@ function corentis_ensure_custom_pages_exist() {
             'title'    => "Conseil Ressources Humaines",
             'template' => 'page-templates/page-conseil-rh.php',
         ),
+        'accompagnement-entreprise' => array(
+            'title'    => "Accompagnement de l'Entreprise",
+            'template' => 'page-templates/page-accompagnement-entreprise.php',
+        ),
         'conseil-comptabilite' => array(
             'title'    => "Conseil Comptabilité",
-            'template' => 'page-templates/page-conseil-comptabilite.php',
+            'template' => 'page-templates/page-accompagnement-entreprise.php',
         ),
     );
 
@@ -209,8 +213,8 @@ function corentis_custom_templates_direct( $template ) {
         }
     }
 
-    if ( is_page( 'conseil-comptabilite' ) || strpos( $req, 'conseil-comptabilite' ) !== false ) {
-        $custom = get_template_directory() . '/page-templates/page-conseil-comptabilite.php';
+    if ( is_page( 'accompagnement-entreprise' ) || is_page( 'conseil-comptabilite' ) || strpos( $req, 'accompagnement-entreprise' ) !== false || strpos( $req, 'conseil-comptabilite' ) !== false ) {
+        $custom = get_template_directory() . '/page-templates/page-accompagnement-entreprise.php';
         if ( file_exists( $custom ) ) {
             global $wp_query;
             if ( $wp_query ) {

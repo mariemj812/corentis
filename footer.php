@@ -41,7 +41,7 @@ if (! defined('ABSPATH')) exit;
           <li><a href="<?php echo corentis_page_url('conseil-social'); ?>">Social</a></li>
           <li><a href="<?php echo corentis_page_url('conseil-digital'); ?>">Marketing Digital</a></li>
           <li><a href="<?php echo corentis_page_url('conseil-rh'); ?>">Ressources Humaines</a></li>
-          <li><a href="<?php echo corentis_page_url('conseil-comptabilite'); ?>">Comptabilité</a></li>
+          <li><a href="<?php echo corentis_page_url('accompagnement-entreprise'); ?>">Accompagnement de l'entreprise</a></li>
         </ul>
       </div>
       <div class="footer-col">
